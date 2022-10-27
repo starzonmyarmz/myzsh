@@ -15,8 +15,8 @@ alias la="ls -Gla"
 alias showdots="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder && echo 'Showing Hidden Files'"
 alias hidedots="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder && echo 'Hiding Hidden Files'"
 
-# Bundle Exec
-alias be="bundle exec"
+# Use VS Code for default editor
+export EDITOR="code -w"
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
