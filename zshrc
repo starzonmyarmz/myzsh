@@ -1,4 +1,4 @@
-# https://github.com/sindresorhus/pure
+# https://github.com/sindresorhus/pure#manually
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
@@ -17,12 +17,3 @@ alias hidedots="defaults write com.apple.Finder AppleShowAllFiles -bool false &&
 
 # Use VS Code for default editor
 export EDITOR="code -w"
-
-# Start an HTTP server from a directory, optionally specifying the port
-function server() {
-	local port="${1:-8000}"
-	open "http://localhost:${port}/"
-	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-}
